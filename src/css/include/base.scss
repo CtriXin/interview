@@ -1,0 +1,44 @@
+$vw_design: 720;
+// rem 单位换算：定为 75px 只是方便运算，750px-75px、640-64px、1080px-108px，如此类推
+$vw_fontsize: 72; // iPhone 6尺寸的根元素大小基准值
+
+@function rem($px) {
+	@return $px / $vw-fontsize * 1rem;
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+	background-clip: padding-box;
+	/* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+	-webkit-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+	-webkit-border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin border-right-radius($radius) {
+	-webkit-border-bottom-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	-webkit-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+	-webkit-border-bottom-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+	-webkit-border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+	-webkit-border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
+}
