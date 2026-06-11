@@ -15,6 +15,7 @@ Interview is a light question gate. It borrows the best parts of:
 - `ask-plan-questions`: ask only questions that change the plan.
 - `requirements-discovery`: clarify users, value, scope, and acceptance criteria.
 - `clarification`: inspect available context in parallel instead of asking what the repo can answer.
+- `grill-with-docs`: sharpen domain language, test boundaries with scenarios, and preserve durable decisions when they matter.
 
 Do not turn every task into a workshop. The goal is to get enough clarity to proceed safely.
 
@@ -32,6 +33,7 @@ Do not turn every task into a workshop. The goal is to get enough clarity to pro
    - architecture, data model, APIs, or dependencies
    - validation, rollout, migration, or risk
    - product value, target user, workflow, or tone
+   - domain terminology, business rules, or decisions future agents should not rediscover
 
 3. **Ask Lightly**
    - Ask the highest-impact question first.
@@ -43,6 +45,7 @@ Do not turn every task into a workshop. The goal is to get enough clarity to pro
    - While waiting for user answers, explore code/docs if tools or subagents are available.
    - For independent decision branches, ask them in one compact batch.
    - For dependent branches, ask one question at a time.
+   - When domain relationships are vague, propose one concrete scenario or edge case to force precision.
 
 5. **Close the Gate**
    Stop interviewing once the next step is safe. Summarize the working brief and proceed, or hand off to the relevant skill.
@@ -120,6 +123,15 @@ Clarify audience, workflow, visual direction, constraints, and success criteria.
 
 **Engineering Interview**
 Inspect repo patterns first. Ask only about constraints that code cannot answer: compatibility, rollout, acceptance, non-goals, and risk tolerance.
+
+**Documented Interview**
+Use when the interview resolves domain language or durable architectural/product decisions.
+
+- If `CONTEXT-MAP.md` or `CONTEXT.md` exists, read it before asking terminology questions.
+- If a project-specific term is resolved, suggest a tiny `CONTEXT.md` entry: canonical term, one-sentence definition, and avoided synonyms.
+- Do not create documentation for generic terms, scratch ideas, or implementation details.
+- Offer an ADR only when the decision is hard to reverse, surprising without the reason, and based on a real trade-off.
+- Keep documentation optional unless the user asked for durable handoff or the repo already uses these docs.
 
 **Grill Mode**
 Use only when requested. Walk the decision tree branch-by-branch, recommend answers, and stop when the plan is testable.
