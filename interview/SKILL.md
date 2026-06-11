@@ -26,7 +26,13 @@ Do not turn every task into a workshop. The goal is to get enough clarity to pro
    - Identify what can be discovered locally from code, files, docs, or prior context.
    - Do that discovery before asking the user.
 
-2. **Map Uncertainty**
+2. **Check Sources of Truth**
+   - Compare the user request with nearby code, docs, rules, and prior context.
+   - If sources conflict, name the conflict briefly.
+   - Prefer the evidence-backed path when the risk is low.
+   - Ask one smallest-possible decision question when the conflict changes scope, safety, or compatibility.
+
+3. **Map Uncertainty**
    Rank open questions by whether they change:
    - success criteria or definition of done
    - scope boundaries and non-goals
@@ -35,20 +41,26 @@ Do not turn every task into a workshop. The goal is to get enough clarity to pro
    - product value, target user, workflow, or tone
    - domain terminology, business rules, or decisions future agents should not rediscover
 
-3. **Ask Lightly**
+4. **Ask Lightly**
    - Ask the highest-impact question first.
    - Batch 2-3 questions only when they are independent and easy to answer together.
    - Always provide a recommended default or a small set of options.
    - Let the user reply with `defaults` when the recommendations are acceptable.
 
-4. **Parallelize When Useful**
+5. **Parallelize When Useful**
    - While waiting for user answers, explore code/docs if tools or subagents are available.
    - For independent decision branches, ask them in one compact batch.
    - For dependent branches, ask one question at a time.
    - When domain relationships are vague, propose one concrete scenario or edge case to force precision.
 
-5. **Close the Gate**
+6. **Close the Gate**
    Stop interviewing once the next step is safe. Summarize the working brief and proceed, or hand off to the relevant skill.
+
+## Fatigue Escape
+
+If the user says `defaults`, `你定`, `先做`, `快点`, `随便`, or otherwise signals impatience, stop questioning immediately.
+
+Use the recommended defaults, state the assumptions in one short sentence, and proceed. Do not ask a follow-up unless the next step is destructive, irreversible, or high-risk.
 
 ## Question Budget
 
@@ -56,6 +68,18 @@ Do not turn every task into a workshop. The goal is to get enough clarity to pro
 - Non-trivial tasks: up to 2 rounds.
 - High-risk work or explicit "grill me": continue branch-by-branch until major ambiguity is resolved.
 - If the user shows fatigue, switch to assumptions plus defaults.
+
+## Question Ledger
+
+Use a tiny ledger only when the task spans multiple turns, multiple skills, or repeated ambiguity.
+
+```markdown
+Asked:
+Defaulted:
+Still unknown:
+```
+
+Keep each line short. The ledger prevents repeated questions; it is not a project plan.
 
 ## Question Format
 
@@ -86,9 +110,9 @@ Reply with choices, or `defaults` to use the recommendations.
 
 ## Ask vs Assume
 
-Ask when the answer affects implementation, sequencing, acceptance criteria, user experience, risk, or irreversible choices.
+Ask when the answer affects implementation, sequencing, acceptance criteria, user experience, risk, compatibility, or irreversible choices.
 
-Assume when the answer is low-risk, recoverable, conventional in the repo, or discoverable locally. State the assumption briefly.
+Assume when the answer is low-risk, recoverable, conventional in the repo, discoverable locally, or already covered by a recommended default. State the assumption briefly.
 
 Never ask:
 
@@ -96,6 +120,7 @@ Never ask:
 - broad prompts like "what do you want?"
 - preference questions that do not change the outcome
 - more than 3 questions in one message
+- another question after the user has accepted defaults, unless safety requires it
 
 ## Output Brief
 
@@ -143,5 +168,6 @@ The interview is complete when:
 - success criteria are testable
 - scope boundaries are explicit enough
 - key assumptions are named
+- source-of-truth conflicts are resolved or explicitly defaulted
 - the next action is safe, reversible, or clearly approved
 - remaining uncertainty is documented instead of blocking progress
