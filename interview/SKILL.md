@@ -62,7 +62,7 @@ Use the recommended defaults, state the assumptions in one short sentence, and p
 
 ## Question Budget
 
-- Quick (default): 0 questions preferred — propose a vetoable plan; ask 1 only if an answer changes the outcome.
+- Quick (default): 0 questions by default — propose a vetoable plan; ask 1 only if an answer changes the outcome.
 - Normal (answers change the outcome): 1-3 questions total.
 - Non-trivial tasks: up to 2 rounds.
 - High-risk work or explicit "grill me": continue branch-by-branch until major ambiguity is resolved.
@@ -90,7 +90,13 @@ Main path — a vetoable proposal (use this first):
 默认这么做，除非你说停 / 改。
 ```
 
-(English: "I'll do <action> because <reason>. [Alt: <alt> — skipped because <why>] Proceeding unless you stop or change it.")
+For English-only contexts, use:
+
+```text
+I'll do <action> because <reason>.
+[Alt: <alt> — skipped because <why>]
+Proceeding unless you stop or change it.
+```
 
 When you must ask, use this compact format:
 
@@ -150,7 +156,7 @@ Keep the brief short. If implementation should start immediately, include the br
 ## Modes
 
 **Quick Interview**
-Default for small or unclear tasks. Restate the goal, recommend the route, name key assumptions, then proceed unless vetoed — produce a vetoable proposal rather than open-ended questions. Ask 0-1 question only if an answer changes the outcome.
+Default for small or unclear tasks. Restate the goal, recommend the route, name key assumptions, then proceed unless vetoed — produce a vetoable proposal rather than open-ended questions. Ask 1 question only if an answer changes the outcome.
 
 **Design Interview**
 Clarify audience, workflow, visual direction, constraints, and success criteria. Avoid generic style questions; offer concrete directions.
