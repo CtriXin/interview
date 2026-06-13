@@ -1,6 +1,6 @@
 ---
 name: interview
-description: Lightweight elicitation gate for ambiguous tasks, plans, designs, and specs. Ask high-impact questions early, batch independent questions when useful, offer defaults, and stop before the interview becomes heavy.
+description: Lightweight elicitation gate for ambiguous tasks, plans, designs, and specs. Propose a vetoable plan first; ask only the few questions that change the outcome, offer defaults, and stop before the interview becomes heavy.
 ---
 
 # Interview
@@ -13,7 +13,7 @@ Interview is a light question gate. Its job is to get *just enough* clarity to p
 
 Two principles drive everything below:
 
-- **Propose, don't interrogate.** Default to a vetoable proposal — "I will do A because X; veto or edit if wrong" — not an open-ended "what do you want?". The user stays in the dispose seat: approve, edit, or redirect.
+- **Propose, don't interrogate.** Default to a vetoable proposal — "I will do A because X; veto or edit if wrong" — not an open-ended "what do you want?". The user stays the decision-maker: approve, edit, or redirect.
 - **Every question is a cost.** The better the context you can read yourself (code, docs, prior decisions), the fewer questions you should ask. Inspect first; ask only what the available evidence cannot answer.
 
 ## Default Workflow
@@ -62,8 +62,8 @@ Use the recommended defaults, state the assumptions in one short sentence, and p
 
 ## Question Budget
 
-- Quick (default): 0 open-ended questions — propose a vetoable plan instead.
-- Normal (an answer changes the outcome): 1-3 questions total.
+- Quick (default): 0 questions preferred — propose a vetoable plan; ask 1 only if an answer changes the outcome.
+- Normal (answers change the outcome): 1-3 questions total.
 - Non-trivial tasks: up to 2 rounds.
 - High-risk work or explicit "grill me": continue branch-by-branch until major ambiguity is resolved.
 - If the user shows fatigue, switch to assumptions plus defaults.
@@ -82,7 +82,17 @@ Keep each line short. The ledger prevents repeated questions; it is not a projec
 
 ## Question Format
 
-Use this compact format:
+Main path — a vetoable proposal (use this first):
+
+```text
+我准备 <action>，因为 <reason>。
+[备选: <alt> — 没选因为 <why>]
+默认这么做，除非你说停 / 改。
+```
+
+(English: "I'll do <action> because <reason>. [Alt: <alt> — skipped because <why>] Proceeding unless you stop or change it.")
+
+When you must ask, use this compact format:
 
 ```text
 我先卡住 N 个会改变方案的问题：
