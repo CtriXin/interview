@@ -9,15 +9,12 @@ Use this skill when the user's request would benefit from earlier thinking befor
 
 ## Core Idea
 
-Interview is a light question gate. It borrows the best parts of:
+Interview is a light question gate. Its job is to get *just enough* clarity to proceed safely — never to run a workshop.
 
-- `grill-me`: stress-test the decision tree.
-- `ask-plan-questions`: ask only questions that change the plan.
-- `requirements-discovery`: clarify users, value, scope, and acceptance criteria.
-- `clarification`: inspect available context in parallel instead of asking what the repo can answer.
-- `grill-with-docs`: sharpen domain language, test boundaries with scenarios, and preserve durable decisions when they matter.
+Two principles drive everything below:
 
-Do not turn every task into a workshop. The goal is to get enough clarity to proceed safely.
+- **Propose, don't interrogate.** Default to a vetoable proposal — "I will do A because X; veto or edit if wrong" — not an open-ended "what do you want?". The user stays in the dispose seat: approve, edit, or redirect.
+- **Every question is a cost.** The better the context you can read yourself (code, docs, prior decisions), the fewer questions you should ask. Inspect first; ask only what the available evidence cannot answer.
 
 ## Default Workflow
 
@@ -42,7 +39,8 @@ Do not turn every task into a workshop. The goal is to get enough clarity to pro
    - domain terminology, business rules, or decisions future agents should not rediscover
 
 4. **Ask Lightly**
-   - Ask the highest-impact question first.
+   - Prefer a vetoable proposal over a question: "I will do A because X; veto if wrong."
+   - When you must ask, ask the highest-impact question first.
    - Batch 2-3 questions only when they are independent and easy to answer together.
    - Always provide a recommended default or a small set of options.
    - Let the user reply with `defaults` when the recommendations are acceptable.
@@ -64,7 +62,8 @@ Use the recommended defaults, state the assumptions in one short sentence, and p
 
 ## Question Budget
 
-- Default: 1-3 questions total.
+- Quick (default): 0 open-ended questions — propose a vetoable plan instead.
+- Normal (an answer changes the outcome): 1-3 questions total.
 - Non-trivial tasks: up to 2 rounds.
 - High-risk work or explicit "grill me": continue branch-by-branch until major ambiguity is resolved.
 - If the user shows fatigue, switch to assumptions plus defaults.
@@ -141,7 +140,7 @@ Keep the brief short. If implementation should start immediately, include the br
 ## Modes
 
 **Quick Interview**
-Use for small unclear tasks. Ask 1-2 questions or choose defaults.
+Default for small or unclear tasks. Restate the goal, recommend the route, name key assumptions, then proceed unless vetoed — produce a vetoable proposal rather than open-ended questions. Ask 0-1 question only if an answer changes the outcome.
 
 **Design Interview**
 Clarify audience, workflow, visual direction, constraints, and success criteria. Avoid generic style questions; offer concrete directions.
